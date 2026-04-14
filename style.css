@@ -1,0 +1,89 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #d2691e;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#stats {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#pizza-maker, #shop, #customers {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #ff6b6b, #ffa500);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#customer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.customer {
+    border: 2px solid #d2691e;
+    padding: 10px;
+    margin: 5px;
+    background: #fff8dc;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.customer img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}

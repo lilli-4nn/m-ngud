@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Maker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Pizza Restaurant Game</h1>
+    <div id="game">
+        <div id="stats">
+            <p>Money: €<span id="money">50</span></p>
+            <p>Level: <span id="level">1</span></p>
+            <p>Customers Served: <span id="customersServed">0</span></p>
+        </div>
+        <div id="pizza-maker">
+            <h2>Make Your Pizza</h2>
+            <div id="current-pizza">Your Pizza: <span id="pizza-toppings">🍕 (empty)</span></div>
+            <button id="bake-pizza">Bake Pizza (€5)</button>
+            <button id="sell-pizza" disabled>Sell Pizza</button>
+            <div id="toppings">
+        </div>
+        <div id="shop">
+            <h2>Shop</h2>
+            <h3>Buy New Toppings</h3>
+            <button id="buy-pesto">Buy Pesto ($10)</button>
+            <button id="buy-basil">Buy Basil ($10)</button>
+            <button id="buy-chicken">Buy Chicken ($15)</button>
+            <button id="buy-fish">Buy Fish ($15)</button>
+            <!-- More can be added -->
+            <h3>Upgrades</h3>
+            <button id="upgrade-restaurant">Upgrade Restaurant ($50)</button>
+        </div>
+        <div id="customers">
+            <h2>Customers</h2>
+            <div id="customer-list"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
