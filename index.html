@@ -1,42 +1,73 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Maker Game</title>
+    <title>Pizza Tycoon</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pizza Restaurant Game</h1>
-    <div id="game">
-        <div id="stats">
-            <p>Money: €<span id="money">50</span></p>
-            <p>Level: <span id="level">1</span></p>
-            <p>Customers Served: <span id="customersServed">0</span></p>
-        </div>
-        <div id="pizza-maker">
-            <h2>Make Your Pizza</h2>
-            <div id="current-pizza">Your Pizza: <span id="pizza-toppings">🍕 (empty)</span></div>
-            <button id="bake-pizza">Bake Pizza (€5)</button>
-            <button id="sell-pizza" disabled>Sell Pizza</button>
-            <div id="toppings">
-        </div>
-        <div id="shop">
-            <h2>Shop</h2>
-            <h3>Buy New Toppings</h3>
-            <button id="buy-pesto">Buy Pesto ($10)</button>
-            <button id="buy-basil">Buy Basil ($10)</button>
-            <button id="buy-chicken">Buy Chicken ($15)</button>
-            <button id="buy-fish">Buy Fish ($15)</button>
-            <!-- More can be added -->
-            <h3>Upgrades</h3>
-            <button id="upgrade-restaurant">Upgrade Restaurant ($50)</button>
-        </div>
-        <div id="customers">
-            <h2>Customers</h2>
-            <div id="customer-list"></div>
-        </div>
-    </div>
+    <header>
+        <h1>Pizza Tycoon</h1>
+        <p>Build the best pizzeria in town by matching orders, upgrading your kitchen, and growing your reputation.</p>
+    </header>
+
+    <main id="game">
+        <section id="stats" class="card">
+            <h2>Stats</h2>
+            <div class="stat-grid">
+                <div><strong>Money</strong><span>€<span id="money">50</span></span></div>
+                <div><strong>Day</strong><span><span id="day">1</span></span></div>
+                <div><strong>Reputation</strong><span><span id="reputation">50</span>/100</span></div>
+                <div><strong>Customers Served</strong><span><span id="customersServed">0</span></span></div>
+                <div><strong>Daily Goal</strong><span><span id="dailyGoal">5</span> pizzas</span></div>
+            </div>
+        </section>
+
+        <section id="kitchen" class="card">
+            <h2>Your Kitchen</h2>
+            <div class="pizza-panel">
+                <div class="pizza-preview">
+                    <h3>Current Pizza</h3>
+                    <div id="pizza-display">🍕 <span id="pizza-toppings">empty</span></div>
+                    <div class="pizza-controls">
+                        <label>Crust
+                            <select id="crust-select"></select>
+                        </label>
+                        <label>Sauce
+                            <select id="sauce-select"></select>
+                        </label>
+                    </div>
+                    <div id="topping-buttons"></div>
+                </div>
+
+                <div class="action-panel">
+                    <button id="bake-pizza">Bake Pizza (€5)</button>
+                    <button id="serve-pizza" disabled>Serve Best Match</button>
+                    <button id="clear-pizza">Clear Pizza</button>
+                    <div class="notes">
+                        <p><strong>Status:</strong> <span id="status-message">Build a pizza to begin.</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="orders" class="card">
+            <h2>Customer Orders</h2>
+            <div id="orders-list" class="orders-grid"></div>
+        </section>
+
+        <section id="shop" class="card">
+            <h2>Shop & Upgrades</h2>
+            <div id="shop-list" class="shop-grid"></div>
+        </section>
+
+        <section id="log" class="card">
+            <h2>Daily Log</h2>
+            <div id="game-log"></div>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

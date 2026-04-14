@@ -1,89 +1,225 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
-    color: #333;
+﻿* {
+    box-sizing: border-box;
 }
 
-h1 {
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, #fff5dd 0%, #ffb87d 55%, #d9481f 100%);
+    color: #2d2d2d;
+}
+
+header {
     text-align: center;
-    color: #d2691e;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    padding: 30px 20px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.05em;
+    color: #5c230a;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.15);
+}
+
+header p {
+    margin: 10px auto 0;
+    max-width: 760px;
+    font-size: 1rem;
+    color: #4a2f1c;
 }
 
 #game {
+    display: grid;
+    gap: 20px;
+    width: min(1180px, calc(100% - 30px));
+    margin: 0 auto 40px;
+    padding-bottom: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.93);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.7);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #9a2e0b;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.stat-grid div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff4e8;
+    border-radius: 16px;
+    padding: 14px;
+    border: 1px solid rgba(154,46,11,0.12);
+}
+
+.stat-grid strong {
+    font-size: 0.95rem;
+    color: #8b310f;
+}
+
+.pizza-panel {
+    display: grid;
+    gap: 18px;
+}
+
+.pizza-preview,
+.action-panel {
+    border-radius: 20px;
+    padding: 18px;
+    background: #fff5eb;
+    border: 1px solid rgba(154,46,11,0.12);
+}
+
+.pizza-preview h3 {
+    margin-top: 0;
+}
+
+#pizza-display {
+    margin: 14px 0;
+    font-size: 1.25rem;
+    min-height: 42px;
+}
+
+.pizza-controls {
+    display: grid;
+    gap: 12px;
+}
+
+.pizza-controls label {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 6px;
+    font-weight: 600;
 }
 
-#stats {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+select,
+button {
+    border-radius: 14px;
+    border: none;
+    font: inherit;
 }
 
-#pizza-maker, #shop, #customers {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 20px;
-    margin: 10px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+select {
+    padding: 12px 14px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(157, 55, 5, 0.12);
+}
+
+#topping-buttons {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin-top: 16px;
 }
 
 button {
-    margin: 5px;
-    padding: 10px 15px;
-    background: linear-gradient(45deg, #ff6b6b, #ffa500);
-    color: white;
-    border: none;
-    border-radius: 25px;
+    padding: 12px 16px;
     cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #d9480f 0%, #ff8a3d 100%);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 20px rgba(217, 72, 15, 0.22);
 }
 
 button:disabled {
-    background: #cccccc;
+    background: #d1d1d1;
+    color: #777;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
 }
 
-#customer-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.action-panel button {
+    width: 100%;
+    margin-bottom: 12px;
 }
 
-.customer {
-    border: 2px solid #d2691e;
-    padding: 10px;
-    margin: 5px;
-    background: #fff8dc;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.notes {
+    background: rgba(255,255,255,0.9);
+    border-radius: 16px;
+    padding: 14px;
+    border: 1px solid rgba(154,46,11,0.08);
 }
 
-.customer img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 5px;
+.orders-grid,
+.shop-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.order-card,
+.shop-card,
+.log-entry {
+    background: #fff4e8;
+    border: 1px solid rgba(154,46,11,0.12);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.order-card h3,
+.shop-card h3 {
+    margin-top: 0;
+}
+
+.order-card p,
+.shop-card p,
+.log-entry p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+#game-log {
+    display: grid;
+    gap: 10px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.log-entry {
+    background: rgba(255,255,255,0.95);
+}
+
+@media (min-width: 900px) {
+    #game {
+        grid-template-columns: 1.2fr 1fr;
+        grid-template-areas:
+            "stats orders"
+            "kitchen shop"
+            "log log";
+    }
+
+    #stats { grid-area: stats; }
+    #orders { grid-area: orders; }
+    #kitchen { grid-area: kitchen; }
+    #shop { grid-area: shop; }
+    #log { grid-area: log; }
+}
+
+@media (max-width: 700px) {
+    header p {
+        font-size: 0.95rem;
+    }
 }
